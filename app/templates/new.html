@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notify Me</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 50px;
+    }
+
+    .notify-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .notify-button {
+      font-size: 1.2em;
+      padding: 15px 30px;
+      background-color: #6a11cb;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .notify-button:hover {
+      background-color: #2575fc;
+      transform: scale(1.05);
+    }
+
+    .email-prompt {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .email-prompt input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .email-prompt button {
+      font-size: 1em;
+      padding: 10px 20px;
+      background-color: #6a11cb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .email-prompt button:hover {
+      background-color: #2575fc;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container notify-container">
+    <button class="btn notify-button" onclick="showEmailPrompt()">Notify Me</button>
+    <div class="email-prompt" id="emailPrompt">
+      <h3>Enter your email address</h3>
+      <input type="email" id="notifyEmail" placeholder="Your email address">
+      <button onclick="sendNotification()">Submit</button>
+    </div>
+  </div>
+
+  <!-- Email.js script -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.11.0/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("jx8TiUIaNuP77fD7N"); // Ensure this public key is correct
+    })();
+
+    function showEmailPrompt() {
+      document.getElementById('emailPrompt').style.display = 'flex';
+    }
+
+    function sendNotification() {
+      const inputEmail1 = document.getElementById("notifyEmail").value;
+      
+      if (validateEmail(inputEmail1)) {
+        emailjs.send("service_hlql7em", "template_ud7ql7m", {
+          inputEmail: inputEmail1
+        })
+        .then((response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          alert("Notification sent successfully!");
+        })
+        .catch((error) => {
+          console.error("Error:", error); 
+          alert("Failed to send notification. Please try again later.");
+        });
+      } else {
+        alert("Please enter a valid email address.");
+      }
+    }
+
+    function validateEmail(email) {
+      const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      return re.test(String(email).toLowerCase());
+    }
+  </script>
+</body>
+</html>

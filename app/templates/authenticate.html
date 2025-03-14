@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0d2d5d, #031f3d);
+            color: #ecf0f1;
+            margin: 0;
+            overflow: hidden;
+        }
+        .form-container {
+            background: rgb(24, 31, 45);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+            z-index: 1;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .form-control {
+            background: rgba(101, 100, 100, 0.1);
+            border: none;
+            color: #ecf0f1;
+        }
+        .form-control::placeholder {
+            color: #2d2e2e;
+        }
+        .btn-primary {
+            background-color: #2980b9;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .btn-primary:hover {
+            background-color: #3498db;
+        }
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            animation: float 25s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(20px, -30px);
+            }
+            50% {
+                transform: translate(-20px, 30px);
+            }
+            75% {
+                transform: translate(30px, -20px);
+            }
+            100% {
+                transform: translate(-30px, 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>User Login / Sign Up</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login / Signup</button>
+    </form>
+
+
+        <!-- <form id="authForm" method="POST" action="/authenticate">
+            <input type="text" class="form-control mb-3" name="username" placeholder="Username" required>
+            <input type="password" class="form-control mb-3" name="password" placeholder="Password" required>
+            <button type="submit" class="btn btn-primary">Login / Sign Up</button>
+        </form> -->
+    </div>
+
+    <div class="bubbles" id="bubbles"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            for (let i = 0; i < 50; i++) {
+                createBubble();
+            }
+        });
+
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            const size = Math.random() * 60 + 10 + 'px';
+            bubble.style.width = size;
+            bubble.style.height = size;
+            bubble.style.left = Math.random() * 100 + '%';
+            bubble.style.top = Math.random() * 100 + '%';
+            bubble.style.animationDuration = Math.random() * 25 + 10 + 's';
+            document.getElementById('bubbles').appendChild(bubble);
+        }
+
+        document.getElementById("authForm").onsubmit = async function(e) {
+            e.preventDefault();
+            const response = await fetch('/authenticate', {
+                method: 'POST',
+                body: new FormData(this)
+            });
+            const result = await response.text();
+             
+            if (result === "Login Successful") {
+                window.location.href = "/dashboard";
+            } else if (result === "Sign Up Successful") {
+                window.location.href = "/dashboard";
+            } else {
+                alert(result);
+            }
+        };
+    </script>
+</body>
+</html>

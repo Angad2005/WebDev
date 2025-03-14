@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASUS TUF Gaming Laptop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='strix.css') }}">
+
+</head>
+<body>
+    
+
+    <header id="main-header">
+        <div class="logo">ASUS ROG STRIX </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="auth-section">
+                    {% if 'logged_in' in session %}
+                        <p>Logged in as: {{ session['username'] }}</p>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    {% else %}
+                        <p>You are not logged in. <a href="{{ url_for('authenticate') }}">Login here</a></p>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="hero">
+        <h1>ASUS ROG STRIX Laptop</h1>
+        <p>Unleash Power, Experience Gaming Like Never Before.</p>
+        <button class="cta">Buy Now</button>
+    </section>
+
+    <section id="features" class="features">
+        <h2>Features</h2>
+        <div class="feature-box">High Performance</div>
+        <div class="feature-box">RGB Keyboard</div>
+        <div class="feature-box">144Hz Display</div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <h2>Pricing</h2>
+        <div class="price-card">Base Model: $2286</div>
+        <div class="price-card">Advanced Model: $3200</div>
+        <div class="price-card">Pro Model: $3772</div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2>Gallery</h2>
+        <div class="video-container">
+            <video autoplay loop muted playsinline>
+                <source src="https://dlcdnwebimgs.asus.com/files/media/fd011465-8c85-4f94-88db-97b31f593615/v1/images/video/display_video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="smoke-text">
+            A 90Wh battery paired with up to a power-efficient AMD Ryzen™ 9 8945H processor provides ample endurance for hours of web browsing and video playback, with fast charging technology returning the machine to 50% charge in just 30 minutes.
+        </div>
+        
+        
+        
+        <div class="full-screen-image" style="background-image: url('https://dlcdnwebimgs.asus.com/files/media/fd011465-8c85-4f94-88db-97b31f593615/v1/images/desktop/software/software_layout.webp');"></div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Your Message"></textarea>
+            <button>Send</button>
+        </form>
+    </section>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById("main-header");
+            if (window.scrollY > 50) {
+                header.classList.add("shrink");
+            } else {
+                header.classList.remove("shrink");
+            }
+        });
+    </script>
+
+</body>
+</html>
