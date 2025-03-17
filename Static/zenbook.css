@@ -17,7 +17,7 @@ header {
     color: #fff;
     padding: 2rem 1rem;
     text-align: center;
-    position: sticky;
+    /* position: sticky; */
     top: 0;
     z-index: 1000;
 }
@@ -41,12 +41,12 @@ header nav a:hover {
 
 /* Auth Section */
     .auth-section {
-        display: flex;
+        
         align-items: center;
         justify-content: center;
-        margin-top: 20px;
+        margin-top: 10px;
         font-size: 18px;
-        color: #ecf0f1;
+        color: black;
     }
 
     .auth-section p {
@@ -54,7 +54,7 @@ header nav a:hover {
     }
 
     .auth-section a {
-        color: #3498db;
+        color: #1a1e21;
         text-decoration: none;
         font-weight: bold;
     }
@@ -444,4 +444,39 @@ border-radius: 10px;
 margin-bottom: 10px;
 align-self: flex-start;
 max-width: 80%;
+}
+
+/* ------------------------------------------ */
+.avatar-container {
+    cursor: pointer;
+    margin-top: -115px;
+    margin-right: 50px;
+}
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    color: black;
+    min-width: 150px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 10px;
+}
+.dropdown p {
+    margin: 5px 0;
+}
+.dropdown a {
+    text-decoration: none;
+    color: red;
+    display: block;
+    margin-top: 10px;
+}
+.avatar-container:hover .dropdown {
+    display: block;
 }

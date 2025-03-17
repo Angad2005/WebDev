@@ -26,28 +26,6 @@ header {
     z-index: 1000;
 }
 
-.auth-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-    font-size: 16px;
-    color: #ecf0f1;
-}
-
-.auth-section p {
-    margin: 0 10px 0 0;
-}
-
-.auth-section a {
-    color: #3498db;
-    text-decoration: none;
-    font-weight: bold;
-}
-.auth-section a:hover {
-    text-decoration: underline;
-}
-
 .shrink {
     height: 60px;
     background: rgba(10, 10, 10, 0.95);
@@ -58,6 +36,7 @@ header {
     gap: 20px;
     list-style: none;
     margin-right: 50px;
+    margin-top: 35px;
 }
 
 .nav-links a {
@@ -229,6 +208,45 @@ animation-timeline: view();
 animation-range: entry 80% cover 50%;
 }
 }
+
+/* ===================================================== */
+
+.avatar-container {
+    display: inline-block;
+    cursor: pointer;
+    margin-top: -15px;
+    margin-right: 10px;
+}
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 50px;
+    background-color: white;
+    color: black;
+    min-width: 80px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 10px;
+}
+.dropdown p {
+    margin: 5px 0;
+    color: black;
+}
+.dropdown a {
+    text-decoration: none;
+    color: red;
+    display: block;
+    margin-top: 10px;
+}
+.avatar-container:hover .dropdown {
+    display: block;
+}
+
 
 
 

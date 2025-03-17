@@ -17,30 +17,48 @@
      
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+
             <a class="navbar-brand" href="#">Laptop Store</a>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
+
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href='{{ url_for("home") }}'>Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="#specifications">Specifications</a></li>
                     <li class="nav-item"><a class="nav-link" href="#customer-reviews">Reviews</a></li>
                     <li class="nav-item"><a class="nav-link" href="#feedback">Feedback</a></li>
-                    <li class="nav-item auth-section">
-                        {% if 'logged_in' in session %}
-                            <p style="color: #ffffff;">Logged in as: {{ session['username'] }}</p>
-                            <a href="{{ url_for('logout') }}">Logout</a>
-                        {% else %}
-                            <p>You are not logged in. <a href="{{ url_for('authenticate') }}">Login here</a></p>
-                        {% endif %}
-                    </li>
                 </ul>
+
             </div>
+
+            <div class="navbar">
+                <div class="logo"></div>
+                <div class="avatar-container">
+                    <img src="{{ url_for('static', filename='user.jpg') }}" alt="Profile" class="avatar">
+                    <div class="dropdown">
+                        <div class="auth-section">
+                            {% if 'logged_in' in session %}
+                                <p>Logged in as: {{ session['username'] }}</p>
+                                <a href="{{ url_for('logout') }}">Logout</a>
+                            {% else %}
+                                <p>You are not logged in. <a href="{{ url_for('authenticate') }}">Login here</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </nav>
     </header>
+    
 
     <div class="banner" id="banner">
         <div>
@@ -388,50 +406,15 @@
             </div>
 
 
-            <div id="countdown">
-                <div class="time-section">
-                    <span id="days">0</span> Days
-                </div>
-                <div class="time-section">
-                    <span id="hours">0</span> Hours
-                </div>
-                <div class="time-section">
-                    <span id="minutes">0</span> Minutes
-                </div>
-                <div class="time-section">
-                    <span id="seconds">0</span> Seconds
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <section id="contact" class="contact">
-            <h2>Contact Us</h2>
-            <form>
-                <input type="text" placeholder="Your Name">
-                <input type="email" placeholder="Your Email">
-                <textarea placeholder="Your Message"></textarea>
-                <button>Send</button>
-            </form>
-        </section>
-    </div>
-
-    <div class="chatbot-container" id="chatbot">
-        <div class="chatbot-header">
-            <span>Laptop Assistant</span>
-            <button class="btn btn-sm btn-danger" onclick="toggleChatbot()">X</button>
-        </div>
-        <div class="chatbot-messages" id="chatbotMessages"></div>
-        <div class="chatbot-input">
-            <input type="text" id="chatbotInput" placeholder="Type a message...">
-            <button onclick="sendMessage()">Send</button>
+            
         </div>
     </div>
-    <button class="chatbot-toggle-button" id="chatbotToggleButton" onclick="toggleChatbot()">
-        <i class="fas fa-comments"></i>
-    </button>
+
+    
+    <iframe src="{{ url_for('feedback') }}" width="100%" height="500px"></iframe>
+
+
+    
 
     <footer class="bg-dark text-white pt-5 pb-4">
         <div class="container text-center text-md-left">
@@ -444,7 +427,7 @@
 
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Quick Links</h5>
-                    <p><a href="{{ url_for('home') }} class="text-white style="text-decoration: none;">Home</a></P>
+                    <p><a href="{{ url_for('home') }}" class="text-white" style="text-decoration: none;">Home</a></P>
                     <p><a href="#banner" class="text-white" style="text-decoration: none;">Back To Top</a></p>
                     <p><a href="#gallery" class="text-white" style="text-decoration: none;">Gallery</a></p>
                     <p><a href="#feedback" class="text-white" style="text-decoration: none;">Feedback</a></p>
@@ -456,13 +439,13 @@
 
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Social Media</h5>
-                    <p><a href="#" class="text-white" style="text-decoration: none;"><i class="fab fa-facebook-f"></i>
+                    <p><a href="https://www.facebook.com" target="_blank" class="text-white" style="text-decoration: none;"><i class="fab fa-facebook-f"></i>
                             Facebook</a></p>
-                    <p><a href="#" class="text-white" style="text-decoration: none;"><i class="fab fa-twitter"></i>
+                    <p><a href="https://www.twitter.com" target="_blank" class="text-white" style="text-decoration: none;"><i class="fab fa-twitter"></i>
                             Twitter</a></p>
-                    <p><a href="#" class="text-white" style="text-decoration: none;"><i class="fab fa-instagram"></i>
+                    <p><a href="https://www.instagram.com" target="_blank" class="text-white" style="text-decoration: none;"><i class="fab fa-instagram"></i>
                             Instagram</a></p>
-                    <p><a href="#" class="text-white" style="text-decoration: none;"><i class="fab fa-linkedin-in"></i>
+                    <p><a href="https://www.linkedin.com" target="_blank" class="text-white" style="text-decoration: none;"><i class="fab fa-linkedin-in"></i>
                             LinkedIn</a></p>
                 </div>
 
