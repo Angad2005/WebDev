@@ -20,14 +20,24 @@
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li class="auth-section">
-                    {% if 'logged_in' in session %}
-                        <p>Logged in as: {{ session['username'] }}</p>
-                        <a href="{{ url_for('logout') }}">Logout</a>
-                    {% else %}
-                        <p>You are not logged in. <a href="{{ url_for('authenticate') }}">Login here</a></p>
-                    {% endif %}
-                </li>
+
+                <div class="navbar">
+                    <div class="logo"></div>
+                    <div class="avatar-container">
+                        <img src="{{ url_for('static', filename='user.jpg') }}" alt="Profile" class="avatar">
+                        <div class="dropdown">
+                            <div class="auth-section">
+                                {% if 'logged_in' in session %}
+                                    <p>Logged in as: {{ session['username'] }}</p>
+                                    <a href="{{ url_for('logout') }}">Logout</a>
+                                {% else %}
+                                    <p>You are not logged in. <a href="{{ url_for('authenticate') }}">Login here</a></p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </ul>
         </nav>
     </header>
@@ -69,15 +79,34 @@
         <div class="full-screen-image" style="background-image: url('https://dlcdnwebimgs.asus.com/files/media/fd011465-8c85-4f94-88db-97b31f593615/v1/images/desktop/software/software_layout.webp');"></div>
     </section>
 
+    
+
     <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <form>
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-            <textarea placeholder="Your Message"></textarea>
-            <button>Send</button>
-        </form>
-    </section>
+        
+        
+        <div id="dark">
+            <iframe src="{{ url_for('feedback') }}" width="100%" height="500px" id="feedback-iframe"></iframe>
+        </div>
+        
+        
+        
+
+    <footer style="background-color: #222; color: #fff; padding: 20px 0; text-align: center; margin-top: 50px;">
+        <div style="max-width: 1200px; margin: auto; padding: 0 20px;">
+            <p>&copy; 2025 ASUS TUF SERIES. All Rights Reserved.</p>
+            <div style="margin-top: 10px;">
+                <a href="#" style="color: #6a11cb; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+                <a href="#" style="color: #6a11cb; text-decoration: none; margin: 0 10px;">Terms of Service</a>
+                <a href="#" style="color: #6a11cb; text-decoration: none; margin: 0 10px;">Support</a>
+            </div>
+            <div style="margin-top: 15px;">
+                <a href="https://www.facebook.com" target="_blank" style="color: #6a11cb; text-decoration: none; margin: 0 10px;">Facebook</a>
+                <a href="https://www.twitter.com" target="_blank" style="color: #6a11cb; text-decoration: none; margin: 0 10px;">Twitter</a>
+                <a href="https://www.instagram.com" target="_blank" style="color: #6a11cb; text-decoration: none; margin: 0 10px;">Instagram</a>
+                <a href="https://www.youtube.com" target="_blank" style="color: #6a11cb; text-decoration: none; margin: 0 10px;">YouTube</a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         window.addEventListener('scroll', function() {

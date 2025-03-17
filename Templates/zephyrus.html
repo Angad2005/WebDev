@@ -10,41 +10,6 @@
 
 
     <style>
-        img {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        img:hover {
-            transform: translateY(-10px);
-            /* Moves the image 10px upwards */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            /* Adds shadow for better effect */}
-
-            
-    .auth-section {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 20px;
-        font-size: 18px;
-        color: #ecf0f1;
-    }
-
-    .auth-section p {
-        margin: 0 10px 0 0;
-    }
-
-    .auth-section a {
-        color: #3498db;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .auth-section a:hover {
-        text-decoration: underline;
-    }
-
-        
     </style>
 </head>
 
@@ -59,21 +24,16 @@
                
             </div>
 <!-- this is the navbar uppar wala -->
-            <div class="nav-bar"> 
-                <section>Products </section>
-                <section>Innovation </section>
-                <section>Community </section>
-                <section>Service </section>
-                <section>Where to Buy </section>
-                <section class="auth-section">
-                    {% if 'logged_in' in session %}
-                        <p>Logged in as: {{ session['username'] }}</p>
-                        <a href="{{ url_for('logout') }}">Logout</a>
-                    {% else %}
-                        <p>You are not logged in. <a href="{{ url_for('authenticate') }}">Login here</a></p>
-                    {% endif %}
-                </section>
-            </div>
+<div class="nav-bar">
+    <div class="nav-links">
+        <section>Products</section>
+        <section>Innovation</section>
+        <section>Community</section>
+        <section>Service</section>
+        <section>Where to Buy</section>
+    </div>
+</div>
+
 
             <div class="pgnav-bar">
 
@@ -92,16 +52,33 @@
                     target="_blank">
                     <section>SUPPORT</section>
                 </a>
-
-
+                
+                <div class="navbar">
+                    <div class="logo"></div>
+                    <div class="avatar-container">
+                        <img src="{{ url_for('static', filename='user.jpg') }}" alt="Profile" class="avatar">
+                        <div class="dropdown">
+                            <div class="auth-section">
+                                {% if 'logged_in' in session %}
+                                    <p>Logged in as: {{ session['username'] }}</p>
+                                    <a href="{{ url_for('logout') }}">Logout</a>
+                                {% else %}
+                                    <p>You are not logged in. <a href="{{ url_for('authenticate') }}">Login here</a></p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>   
             </div>
 
-        </div>
-        <video width="100%" style="margin-top:7%;" loop muted autoplay>
-            <source
-                src="https://dlcdnwebimgs.asus.com/files/media/C29CCD6D-9F8B-403F-AFB6-AA0C8680F397/v1/videos/ROG_KV_animation_16x9_5s-transcode.mp4"
-                type="video/mp4">
-        </video>
+           
+
+<video width="100%" style="margin-top:7%;" loop muted autoplay>
+    <source
+        src="https://dlcdnwebimgs.asus.com/files/media/C29CCD6D-9F8B-403F-AFB6-AA0C8680F397/v1/videos/ROG_KV_animation_16x9_5s-transcode.mp4"
+        type="video/mp4">
+</video>
+
         <div id="price"> 
             <div>
                 <section style="font-size: 60px ; font-weight: bolder; color:whitesmoke">
@@ -112,7 +89,7 @@
 
         </div>
 
-    </header>
+   
     
     <div style="margin-left: 15%;">
         <img src="https://rog.asus.com/media/1628541471341.jpg" alt="laptop image" width="80%" height="550px">
@@ -366,6 +343,12 @@
         </head>
 
         <body>
+            
+            
+            <div id="dark">
+                <iframe src="{{ url_for('feedback') }}" width="100%" height="500px" id="feedback-iframe"></iframe>
+            </div>
+            
 
             <!-- Chatbot toggle button with a chat icon -->
            

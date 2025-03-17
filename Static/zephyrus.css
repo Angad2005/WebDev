@@ -45,6 +45,55 @@ body {
 #header .nav-bar section:hover {
     background-color: #555;
 }
+
+
+img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+    transform: translateY(-10px);
+    /* Moves the image 10px upwards */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+            
+.nav-bar {
+    display: flex;
+    justify-content: space-between; /* Spreads content to both ends */
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px; 
+}
+
+.auth-section {
+    margin-left: 10px; 
+    /* display: flex; */
+    align-items: center;
+    gap: 10px; 
+}
+
+.auth-section p {
+    margin: 0;
+}
+
+.auth-section a {
+    color: #00bfff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-section a:hover {
+    text-decoration: underline;
+}
+ 
+
+
     
 #price {
     display: flex;
@@ -77,7 +126,7 @@ body {
     background-color: #555;
     border-radius: 100px;
     padding: 2%;
-    gap: 15px
+    gap: 12px
 }
     
 .pgnav-bar a {
@@ -85,8 +134,7 @@ body {
     text-decoration: none;
 }
 
-
-    
+   
 .pgnav-bar a:hover {
     color: rgb(255, 122, 246)
 }
@@ -294,5 +342,53 @@ body {
 /* Placeholder text styling */
 ::placeholder {
     color: #a0a0a0;
+}
+
+/* =========================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+
+.avatar-container {
+    /* position: relative; */
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 50px;
+    margin-top: -25px;
+}
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* margin-left: 50px; */
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    color: black;
+    min-width: 150px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 10px;
+}
+.dropdown p {
+    margin: 5px 0;
+}
+.dropdown a {
+    text-decoration: none;
+    color: red;
+    display: block;
+    margin-top: 10px;
+}
+.avatar-container:hover .dropdown {
+    display: block;
 }
                 
