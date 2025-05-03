@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in to ROG</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="card" style="width: 400px;">
+        <div class="card-body">
+            <h5 class="card-title text-center">Log in to ROG</h5>
+            <form id="loginForm" method="post">
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {% for error in form.non_field_errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" autocomplete="username">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="current-password">
+                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">Show</button>
+                </div>
+                <button type="submit" id="loginButton" class="btn btn-primary w-100">Log in</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="{% url 'signup' %}" class="btn btn-link">Sign up for ROG</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            var password = document.getElementById('password');
+            var type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.textContent = type === 'password' ? 'Show' : 'Hide';
+        });
+
+        // Prevent double submission
+        document.getElementById('loginForm').addEventListener('submit', function() {
+            document.getElementById('loginButton').disabled = true;
+        });
+    </script>
+</body>
+</html>

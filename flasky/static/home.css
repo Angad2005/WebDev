@@ -1,0 +1,194 @@
+
+/* General Body Styling */
+
+body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+
+
+.navbar {
+    background: linear-gradient(90deg, #1f6feb, #11468f);
+    border-bottom: 2px solid #0a0e13;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+}
+    
+.navbar-nav .nav-link:hover {
+    color: #58a6ff !important;
+}
+
+    
+/* Header Section */
+
+
+#home {
+    background-color: #161b22;
+    padding: 80px 20px;
+    text-align: center;
+    border-bottom: 2px solid #0a0e13;
+    border-radius: 0 0 25px 25px;
+}
+
+#home h1 {
+    color: #58a6ff;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#home p {
+    font-size: 1.2rem;
+    color: #8b949e;
+    margin-top: 10px;
+}
+
+/* Products Section */
+
+#products {
+    padding: 60px 20px;
+    background-color: #0d1117;
+}
+
+#products h2 {
+    color: #58a6ff;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.product-card {
+    background-color: #161b22;
+    color: #c9d1d9;
+    border: 1px solid #21262d;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.product-card img {
+    border-bottom: 1px solid #21262d;
+    width: 100%;
+    height: auto;
+}
+
+.btn-primary {
+    background-color: #58a6ff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #1f6feb;
+}
+
+/* Details Section */
+.details-section {
+    padding: 60px 20px;
+    background-color: #161b22;
+    border-radius: 25px;
+    margin-top: 30px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.details-section img {
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+.details-section h3 {
+    color: #58a6ff;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+
+.details-section p {
+    color: #8b949e;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+.video-wrapper video {
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 15px;
+}
+
+    /* Footer */
+
+footer {
+    background-color: #161b22;
+    padding: 20px;
+    text-align: center;
+    color: #8b949e;
+    font-size: 0.9rem;
+    border-top: 1px solid #21262d;
+}
+
+
+.explore {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* General styling for the video */
+video {
+display: block;
+width: 80%;
+max-width: 800px;
+margin: 20px auto;
+border: 4px solid #007BFF;
+border-radius: 10px;
+overflow: hidden;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+opacity: 0; /* For the fade-in animation */
+transform: scale(0.8); /* Starting scale for the fade-in effect */
+transition: transform 0.5s ease, opacity 0.5s ease;
+animation: fadeIn 1.5s forwards;
+}
+
+/* Fade-in animation on page load */
+@keyframes fadeIn {
+to {
+    opacity: 1;
+    transform: scale(1);
+}
+}
+
+/* Zoom effect when hovered */
+video:hover {
+transform: scale(1.05);
+border-color: #0056b3;
+box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Add a subtle rotation effect */
+video:active {
+transform: scale(1.05) rotate(1deg);
+}

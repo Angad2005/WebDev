@@ -1,0 +1,279 @@
+
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'flasky/static/home.css' %}">
+
+
+</head>
+<body>
+    
+    
+
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Laptop Store</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                
+                <li class="nav-item"><a class="nav-link" href="/zephyrus">Zephyrus</a></li>
+                <li class="nav-item"><a class="nav-link" href="/tuf">TUF Gaming</a></li>
+                <li class="nav-item"><a class="nav-link" href="/strix">Strix</a></li>
+                <li class="nav-item"><a class="nav-link" href="/zenbook">ZenBook</a></li>
+                <li class="nav-item"><a class="nav-link" href="/vivobook">VivoBook</a></li>
+    
+                {% if user.is_authenticated %}
+    <li class="nav-item">
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+    </li>
+{% else %}
+    <li class="nav-item">
+        <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+    </li>
+{% endif %}
+            </ul>
+        </div>
+    </nav>
+    
+
+    <!-- Home Section -->
+    <div id="home">
+        <h1>Welcome to Our Laptop Store</h1>
+        <p>Your ultimate destination for premium laptops.</p>
+    </div>
+
+    <!-- Products Section -->
+    <div id="products" class="container">
+        <h2>Our Products</h2>
+        <div class="row">
+
+            <!-- Product 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="product-card">
+                    <img src="https://lsmedia.linker-cdn.net/266980/2022/7445415.jpeg?d=400x400" alt="Asus Zephyrus">
+                    <div class="card-body">
+                        <h5 class="card-title">Asus Zephyrus</h5>
+                        <p class="card-text">High-performance laptop for gaming.</p>
+                        <a href="#product1" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/71M2ZxGSUBL.SX679.jpg" alt="Asus ZenBook">
+                    <div class="card-body">
+                        <h5 class="card-title">Asus ZenBook</h5>
+                        <p class="card-text">AI-powered laptop for graphic designing.</p>
+                        <a href="#product2" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/71uE0b9BpiL.SX679.jpg" alt="Asus VivoBook">
+                    <div class="card-body">
+                        <h5 class="card-title">Asus VivoBook</h5>
+                        <p class="card-text">Best for office work.</p>
+                        <a href="#product3" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- product 4  -->
+            <div class="col-md-4 mb-4">
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/71UEoJcmA7L._SX679_.jpg" alt="Asus ZenBook">
+                    <div class="card-body">
+                        <h5 class="card-title">Asus TUF Gaming</h5>
+                        <p class="card-text">AI-powered laptop for ultimate gaming Experience.</p>
+                        <a href="#product4" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- product 5  -->
+            <div class="col-md-4 mb-4">
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/71ozP7-hwzL._SX679_.jpg" alt="Asus ZenBook">
+                    <div class="card-body">
+                        <h5 class="card-title">Asus Strix</h5>
+                        <p class="card-text">AI-powered laptop for ultimate gaming .</p>
+                        <a href="#product5" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <!-- Product Details Sections -->
+    <!-- Product 1 Details -->
+    <div id="product1" class="container details-section">
+        <h2>Asus Zephyrus</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="https://rog.asus.com/media/1640743884571.jpg" alt="Asus Zephyrus">
+            </div>
+            <div class="col-md-6">
+                <h3>Description</h3>
+                <p>The ASUS ROG Zephyrus series is a high-performance line of gaming laptops...</p>
+                <div class="video-wrapper">
+                    <video loop muted autoplay>
+                        <source src="https://dlcdnwebimgs.asus.com/files/media/374F7027-F79C-4971-B4D1-E16F45C0848E/v3/images/large/1x/KV.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <a href="https://youtu.be/nYmYB4E_iJY?feature=shared" target="_blank" rel="noopener" style="display:inline-block; padding:10px 20px; background:#FF0000; color:white; text-decoration:none; border-radius:5px; font-family:Arial, sans-serif;">
+                        ▶ Play Video
+                      </a>
+                      <a href="/zephyrus">
+                        <button class="explore">Explore Product</button>
+                    </a>    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product 2 Details -->
+    <div id="product2" class="container details-section">
+        <h2>Asus ZenBook</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="https://dlcdnwebimgs.asus.com/gain/12bea46b-8c0a-4078-b6c5-263b6c722848/" alt="Asus ZenBook">
+            </div>
+            <div class="col-md-6">
+                <h3>Description</h3>
+                <p>The ASUS ZenBook series is a premium lineup of ultrabooks known for their sleek design...</p>
+                <div class="video-wrapper">
+                    <video loop muted autoplay>
+                        <source src="https://dlcdnwebimgs.asus.com/files/media/ea5bde46-a344-49d0-8bcc-befd7351d88b/v2/features/images/video/large/wdVideos/wdVideos_1_video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <a href="https://youtu.be/czlxcz3iugY?feature=shared" target="_blank" rel="noopener" style="display:inline-block; padding:10px 20px; background:#FF0000; color:white; text-decoration:none; border-radius:5px; font-family:Arial, sans-serif;">
+                        ▶ Play Video
+                    </a>
+
+                    <a href="/zenbook">
+                        <button class="explore">Explore Product </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product 3 Details -->
+    <div id="product3" class="container details-section">
+        <h2>Asus VivoBook</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="https://dlcdnwebimgs.asus.com/files/media/88b42944-d112-40a1-87a9-5008b5a92f00/v1/features/images/large/1x/s1/main.jpg" alt="Asus VivoBook">
+            </div>
+            <div class="col-md-6">
+                <h3>Description</h3>
+                <p>The ASUS VivoBook series is a line of versatile, budget-friendly laptops designed for everyday use...</p>
+                <div class="video-wrapper">
+                    <video loop muted autoplay>
+                        <source src="https://dlcdnwebimgs.asus.com/files/media/aab96bdb-a681-488e-acd5-bbdfd565d20a/v3/features/images/video/large/s8/s8_video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <a href="https://youtu.be/mxWGSBKWxI4" target="_blank" rel="noopener" style="display:inline-block; padding:10px 20px; background:#FF0000; color:white; text-decoration:none; border-radius:5px; font-family:Arial, sans-serif;">
+                        ▶ Play Video
+                    </a>
+                    <a href="/vivobook">
+                        <button class="explore">Explore Product </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- product 4 deatils -->
+
+    <div id="product4" class="container details-section">
+        <h2>Asus TUF Gaming</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="https://dlcdnimgs.asus.com/websites/global/PDCustomizedKVSection/video/4532.jpg" alt="Asus Zephyrus">
+            </div>
+            <div class="col-md-6">
+                <h3>Description</h3>
+                <p>The ASUS TUF Gaming series is a high-performance line of gaming laptops...</p>
+                <div class="video-wrapper">
+                    <video loop muted autoplay>
+                        <source src="https://assets.mixkit.co/videos/50748/50748-720.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <a href="https://youtu.be/NuexSRa2x_s" target="_blank" rel="noopener" style="display:inline-block; padding:10px 20px; background:#FF0000; color:white; text-decoration:none; border-radius:5px; font-family:Arial, sans-serif;">
+                        ▶ Play Video
+                      </a>
+                      <a href="/tuf">
+                        <button class="explore">Explore Product</button>
+                    </a> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- product detail 5  -->
+    <div id="product5" class="container details-section">
+        <h2>Asus ROG STRIX </h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="https://dlcdnwebimgs.asus.com/files/media/E16CF64B-339C-4BE7-A03A-C49389ABCF43/v1/img-webp/design/ksp-2.webp" alt="Asus Zephyrus">
+            </div>
+            <div class="col-md-6">
+                <h3>Description</h3>
+                <p>The ASUS ROG STRIX series is a high- quality performance in the line of gaming laptops...</p>
+                <div class="video-wrapper">
+                    <video loop muted autoplay>
+                        <source src="https://dlcdnwebimgs.asus.com/files/media/374F7027-F79C-4971-B4D1-E16F45C0848E/v3/images/large/1x/KV.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <a href="https://youtu.be/Q71XHg8Jf48" target="_blank" rel="noopener" style="display:inline-block; padding:10px 20px; background:#FF0000; color:white; text-decoration:none; border-radius:5px; font-family:Arial, sans-serif;">
+                        ▶ Play Video
+                      </a>
+                      <a href="/strix">
+                        <button class="explore">Explore Product</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="aise_hi">
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Laptop Store. All rights reserved.
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+<li class="nav-item"><a class="nav-link" href="">Back to Top</a></li>
+
+
+
+
+</body>
+</html>

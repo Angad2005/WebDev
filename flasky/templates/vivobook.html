@@ -1,0 +1,783 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Product Landing Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'flaky/static/vivobook' %}">
+    
+</head>
+
+<body>
+
+    
+     
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+
+            <a class="navbar-brand" href="#">Laptop Store</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#specifications">Specifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#customer-reviews">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#feedback-section">Feedback</a></li>
+                </ul>
+
+            </div>
+
+            <div class="navbar">
+                <div class="logo"></div>
+                <div class="avatar-container">
+                    
+                    <div class="dropdown">
+                        
+                    </div>
+                </div>
+            </div>
+
+
+        </nav>
+    </header>
+    
+
+    <div class="banner" id="banner">
+        <div>
+            <h1>Experience Innovation</h1>
+            <p>Discover laptops built for speed, power, and innovation</p>
+        </div>
+    </div>
+
+    <div class="container" id="product-info">
+        <section class="product-info">
+            <h2 class="section-title">About the Laptop</h2>
+            <video width="100%" autoplay loop muted>
+                <source
+                    src="https://dlcdnwebimgs.asus.com/files/media/69280c15-4320-4033-95d0-d8ba755bd490/v202/features/images/video/medium/wdVideos/wdVideos_1_video.mp4"
+                    type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>The Ultimate Laptop features the latest technology, sleek design, and powerful performance. Perfect for
+                all your needs, from gaming to professional work.</p>
+        </section>
+
+        <section class="gallery" id="gallery">
+            <h2 class="section-title">Image Gallery</h2>
+            <div class="image-container">
+                <div class="image" id="gallery-img1">
+
+                    <img src="https://dlcdnwebimgs.asus.com/gain/ac5d08d4-bb3c-4c02-9af4-035c40d53461/w800"
+                        alt="Design Image 1" onclick="openModal();currentSlide(1)">
+                    <div class="text" id="gallery-text1"></div>
+                </div>
+                <div class="image" id="gallery-img2">
+                    <img src="https://dlcdnwebimgs.asus.com/gain/427ec618-b14b-4302-9e7d-441f2d2a71b4/w800"
+                        alt="Design Image 2" onclick="openModal();currentSlide(2)">
+                    <div class="text" id="gallery-text2"></div>
+                </div>
+                <div class="image" id="gallery-img3">
+                    <img src="https://dlcdnwebimgs.asus.com/gain/8ca316fe-0115-4ffb-bbb1-da7c6a1979bd/w800"
+                        alt="Design Image 3" onclick="openModal();currentSlide(3)">
+                    <div class="text" id="gallery-text3"></div>
+                </div>
+                <div class="image" id="gallery-img4">
+                    <img src="https://dlcdnwebimgs.asus.com/gain/7e9c35e1-86ce-408b-847d-0f0be26b4225/w800"
+                        alt="Design Image 4" onclick="openModal();currentSlide(4)">
+                    <div class="text" id="gallery-text4"></div>
+                </div>
+                <div class="image" id="gallery-img5">
+                    <img src="https://dlcdnwebimgs.asus.com/gain/9a1855aa-aaf9-4109-a748-2a5828c3a0cc/w800"
+                        alt="Design Image 5" onclick="openModal();currentSlide(5)">
+                    <div class="text" id="gallery-text5"></div>
+                </div>
+                <div class="image" id="gallery-img6">
+                    <img src="https://dlcdnwebimgs.asus.com/gain/4cef8987-c600-4d62-8797-792b8b4035f2/w800"
+                        alt="Design Image 6" onclick="openModal();currentSlide(6)">
+                    <div class="text" id="gallery-text6"></div>
+                </div>
+            </div>
+        </section>
+
+        <img src="https://dlcdnwebimgs.asus.com/files/media/69280c15-4320-4033-95d0-d8ba755bd490/v202/features/images/medium/2x/kv.webp"
+            width="100%" alt="Laptop Design">
+
+        <section class="animation-section">
+            <h2 class="section-title"></h2>
+            <div class="animation-container">
+                <div class="animated-item" id="anim-item1">
+                    <img src="https://www.blender.org/wp-content/uploads/2019/07/blender_render-1280x720.jpg?x12104"
+                        alt="Animation Design">
+                    <div class="animated-text" id="anim-text1">Animation Design</div>
+                </div>
+
+                <div class="animated-item" id="anim-item2">
+                    <img src="https://www.coralthemes.com/wp-content/uploads/coral-dark-preview.png"
+                        alt="Text Scrolling">
+                    <div class="animated-text" id="anim-text2">Article Scrolling</div>
+                </div>
+
+                <div class="animated-item" id="anim-item3">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd8tjgy7YNEEniJuzXLIwtQybej2hP5-jTfQ&s"
+                        alt="Video Streaming">
+                    <div class="animated-text" id="anim-text3">Video Streaming</div>
+                </div>
+
+                <div class="animated-item" id="anim-item4">
+                    <img src="https://i.pinimg.com/736x/ac/53/d9/ac53d9298740aebe2367599160a46279.jpg" alt="Gaming">
+                    <div class="animated-text" id="anim-text4">Gaming</div>
+                </div>
+
+                <div class="animated-item" id="anim-item5">
+                    <img src="https://dlcdnwebimgs.asus.com/files/media/2003a979-331f-4bb8-b20a-fdcc895355b8/v1/assets/image/proart/related_products_01.jpg"
+                        alt="OLED" size="200%">
+                    <div class="animated-text" id="anim-text5">Colour Accurate</div>
+                </div>
+            </div>
+            <!-- <button class="learn-more" -->
+            <!-- onclick="document.getElementById('product-info').scrollIntoView({behavior: 'smooth'});">Learn</button> -->
+        </section><br>
+        <img src="https://www.asus.com/media/Odin/Websites/global/Tab/20230309032842.jpg" alt="Laptop Design"
+            width="100%">
+        <br><br>
+        <section class="abilities">
+            <div class="box dark text-center mb-4">
+                <h3><i class="fas fa-memory"></i> RAM</h3>
+                <p>16 GB DDR4</p>
+            </div>
+            <div class="box dark text-center mb-4">
+                <h3><i class="fas fa-hdd"></i> ROM</h>
+                    </p>
+                    <p>512 GB SSD</p>
+            </div>
+            <div class="box dark text-center mb-4">
+                <h3><i class="fas fa-video"></i> VRAM</h3>
+                <p>4 GB GDDR6</p>
+            </div>
+            <div class="box dark text-center mb-4">
+                <h3><i class="fas fa-laptop"></i> Graphics Card</h3>
+                <p>NVIDIA GeForce RTX 3060</p>
+            </div>
+
+
+            <div class="box dark text-center mb-4">
+                <h3><i class="fas fa-tools"></i> Build</h3>
+                <p>Aluminum Case</p>
+            </div>
+            <div class="box dark text-center mb-4">
+                <h3><i class="fas fa-shield-alt"></i> Warranty</h3>
+                <p>2 Years</p>
+            </div>
+            <div class="box dark text-center mb-4">
+                <h3><i class="fas fa-keyboard"></i> MUX Switches</h3>
+                <p>For a more personalized experience</p>
+            </div>
+
+            <div class="box dark text-center mb-4">
+                <h3><i class="fas fa-wifi"></i> Connectivity</h3>
+                <p>Wi-Fi 6E & Bluetooth 5.3</p>
+            </div>
+        </section>
+
+
+
+        <section class="specifications" id="specifications">
+
+            <h2 class="section-title">Specifications</h2>
+            <br><video width="100%" autoplay loop muted>
+                <source
+                    src="https://dlcdnwebimgs.asus.com/files/media/d4655f6a-6fcf-46ab-a44f-a271422a48e0/v2/features/images/video/medium/wdVideos/wdVideos_1_video.mp4"
+                    type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <table class="specs-table">
+                <tr>
+                    <th>Feature</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td>Operating System</td>
+                    <td>Windows 11 Home OS</td>
+                </tr>
+                <tr>
+                    <td>Processor</td>
+                    <td>AMD Ryzen™ 9 8945HS Processor 4GHz (24MB Cache, up to 5.2 GHz, 8 cores, 16 Threads); AMD XDNA™
+                        NPU up to 16TOPS</td>
+                </tr>
+                <tr>
+                    <td>Graphics</td>
+                    <td>NVIDIA® GeForce RTX™ 4060 Laptop GPU (233 AI TOPs)
+                        ROG Boost: 1940MHz* at 90W (1890MHz Boost Clock+50MHz OC, 65W+25W Dynamic Boost)
+                        8GB GDDR6</td>
+                </tr>
+                <tr>
+                    <td>Display</td>
+                    <td>
+                        <ul>
+                            <li>ROG Nebula Display</li>
+                            <li>35.56cm (14.0-inch)</li>
+                            <li>3K (2880 x 1800) OLED 16:10 aspect ratio</li>
+                            <li>OLED</li>
+                            <li>DCI-P3: 100%</li>
+                            <li>Refresh Rate: 120Hz</li>
+                            <li>Response Time: 0.2ms</li>
+                            <li>G-Sync / Adaptive-Sync</li>
+                            <li>Pantone Validated</li>
+                            <li>MUX Switch + NVIDIA® Advanced Optimus</li>
+                            <li>Support Dolby Vision HDR: Yes</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Memory</td>
+                    <td>
+                        <ul>
+                            <li>8GB*2 LPDDR5X 6400 on board (Rated speed of RAM module. Actual memory speeds may vary by
+                                CPU configuration.)</li>
+                            <li>Max capacity: 16GB</li>
+                            <li>Support dual channel memory</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td>
+                        <ul>
+                            <li>512GB*2 NVMe M.2 SSD</li>
+                            <li>Max capacity: 2TB</li>
+                            <li>Support dual channel memory</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>I/O Ports</td>
+                    <td>
+                        <ul>
+                            <li>1x 3.5mm Combo Audio Jack</li>
+                            <li>1x HDMI 2.1 FRL</li>
+                            <li>2x USB 3.2 Gen 2 Type-A</li>
+                            <li>1x USB 3.2 Gen 2 Type-C support DisplayPort™</li>
+                            <li>1x Type-C USB 4 with support for DisplayPort™ / power delivery (data speed up to 40Gbps)
+                            </li>
+                            <li>1x card reader (microSD) (UHS-II)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Keyboard and Touchpad</td>
+                    <td>
+                        <ul>
+                            <li>Backlit Chiclet Keyboard 1-Zone RGB</li>
+                            <li>Touchpad</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Camera</td>
+                    <td>1080P FHD IR Camera for Windows Hello</td>
+                </tr>
+                <tr>
+                    <td>Audio</td>
+                    <td>
+                        <ul>
+                            <li>Smart Amp Technology</li>
+                            <li>Dolby Atmos</li>
+                            <li>AI noise-canceling technology</li>
+                            <li>Hi-Res certification (for headphone)</li>
+                            <li>Built-in 3-microphone array</li>
+                            <li>4-speaker (dual force woofer) system with Smart Amplifier Technology, 2 Tweeters, 2
+                                Subwoofers, 2 3.5mm AUX outputs</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Network and Communication</td>
+                    <td>Wi-Fi 6E(802.11ax) (Triple band) 2*2 + Bluetooth® 5.3 Wireless Card (*Bluetooth® version may
+                        change with OS version different).</td>
+                </tr>
+                <tr>
+                    <td>Battery</td>
+                    <td>73WHrs, 4S1P, 4-cell Li-ion</td>
+                </tr>
+                <tr>
+                    <td>Power Supply</td>
+                    <td>Rectangle Conn, 180W AC Adapter, Output: 20V DC, 9A, 180W, Input: 100~240V AC, 50/60Hz
+                        universalW</td>
+                </tr>
+                <tr>
+                    <td>Weight and Dimensions</td>
+                    <td>
+                        <ul>
+                            <li>Weight: 1.8 kg</li>
+                            <li>Dimensions (WxDxH): 31.1 x 22.0 x 1.59 ~ 1.63 cm</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Microsoft Office</td>
+                    <td>Office Home and Student</td>
+                </tr>
+                <tr>
+                    <td>Security</td>
+                    <td>
+                        <ul>
+                            <li>BIOS Administrator Password and User Password Protection</li>
+                            <li>McAfee® 1 year</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+
+        <section class="customer-reviews" id="customer-reviews">
+            <h2 class="section-title">Customer Reviews</h2>
+
+            <!-- Video Reviews -->
+            <div class="video-container">
+                <div class="video">
+                    <iframe width="779" height="390" src="https://www.youtube.com/embed/1HX6qJ_TOZI"
+                        title="ASUS Vivobook 15 X512 Unboxing &amp; First Impressions ⚡ Build Quality, Display, Battery &amp; More..."
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="video">
+                    <iframe width="779" height="438" src="https://www.youtube.com/embed/ldMeZaYpDbI"
+                        title="The Best Laptop for Editing? 😱 ASUS VivoBook Go 15 OLED 2023 Review" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="video">
+                    <iframe width="779" height="390" src="https://www.youtube.com/embed/vJlktS-uJHw"
+                        title="This Hidden Asus Laptop Is Best For Students!" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Text Reviews -->
+            <div class="text-reviews-container">
+                <div class="text-review">
+                    <h3>John Doe</h3>
+                    <p>This laptop has exceeded my expectations. The performance is top-notch, handling everything from
+                        gaming to video editing without a hitch. Battery life is solid, and the build quality is superb.
+                        Highly recommend!</p>
+                </div>
+                <div class="text-review">
+                    <h3>Jane Smith</h3>
+                    <p>I am impressed with the display and audio quality. Watching movies and playing games is a
+                        delight. The keyboard is comfortable for long typing sessions, and the overall design is sleek
+                        and modern. Worth every penny!</p>
+                </div>
+                <div class="text-review">
+                    <h3>Emily Johnson</h3>
+                    <p>This is hands down the best laptop I've ever owned. The speed and efficiency make my work and
+                        play seamless. Great connectivity options and a variety of ports. Customer service was also very
+                        helpful. Five stars!</p>
+                </div>
+            </div>
+        </section>
+        <br><br>
+        <div id="price">
+            <div>
+                <section>
+                    <h1>Vivobook Pro 14</h1>
+                    <p>Price Starting at <b>$899.00</b> <s>$1099.00</s></p>
+                </section>
+            </div>
+
+
+            
+        </div>
+    </div>
+
+    <div id="feedback-section">
+        <h2>Feedback</h2>
+    
+        {% if user.is_authenticated %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-primary">Submit Feedback</button>
+            </form>
+        {% else %}
+            <p><a href="{% url 'login' %}">Log in</a> to leave feedback.</p>
+        {% endif %}
+    
+        <hr>
+        <h4>What users are saying:</h4>
+        {% for fb in feedbacks %}
+            <div class="feedback-card">
+                <strong>{{ fb.user.username }}</strong> on {{ fb.created_at|date:"M d, Y H:i" }}<br>
+                <p>{{ fb.message }}</p>
+    
+                {% if fb.user == request.user %}
+                    <form method="post" action="{% url 'delete_feedback' fb.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this feedback?');">
+                            Delete
+                        </button>
+                    </form>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>No feedback yet. Be the first!</p>
+        {% endfor %}
+    </div>
+    
+
+
+    
+
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-left">
+            <div class="row text-center text-md-left">
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Laptop Land</h5>
+                    <p>Discover laptops built for speed, power, and innovation. Follow us on our social media
+                        channels to stay updated.</p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Quick Links</h5>
+                    <p><a href="#" class="text-white" style="text-decoration: none;">Home</a></P>
+                    <p><a href="#banner" class="text-white" style="text-decoration: none;">Back To Top</a></p>
+                    <p><a href="#gallery" class="text-white" style="text-decoration: none;">Gallery</a></p>
+                    <p><a href="#feedback" class="text-white" style="text-decoration: none;">Feedback</a></p>
+                    <p><a href="#product-info" class="text-white" style="text-decoration: none;">About</a></p>
+                    <p><a href="#specifications" class="text-white" style="text-decoration: none;">Specifications</a>
+                    </p>
+                    <p><a href="#customer-reviews" class="text-white" style="text-decoration: none;">Reviews</a></p>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Social Media</h5>
+                    <p><a href="https://www.facebook.com" target="_blank" class="text-white" style="text-decoration: none;"><i class="fab fa-facebook-f"></i>
+                            Facebook</a></p>
+                    <p><a href="https://www.twitter.com" target="_blank" class="text-white" style="text-decoration: none;"><i class="fab fa-twitter"></i>
+                            Twitter</a></p>
+                    <p><a href="https://www.instagram.com" target="_blank" class="text-white" style="text-decoration: none;"><i class="fab fa-instagram"></i>
+                            Instagram</a></p>
+                    <p><a href="https://www.linkedin.com" target="_blank" class="text-white" style="text-decoration: none;"><i class="fab fa-linkedin-in"></i>
+                            LinkedIn</a></p>
+                </div>
+
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact Us</h5>
+                    <p><i class="fas fa-home mr-3"></i> Gali Number 420, Navi Delhi</p>
+                    <p><i class="fas fa-envelope mr-3"></i> info@laptopland.com</p>
+                    <p><i class="fas fa-phone mr-3"></i> +91 9999999999</p>
+                    <p><i class="fas fa-print mr-3"></i> +91 9999999999</p>
+                </div>
+            </div>
+
+            <hr class="mb-4">
+
+            <div class="row align-items-center">
+                <div class="col-md-7 col-lg-8">
+                    <p class="text-center text-md-left">© 2024 Copyright:
+                        <a href="#" style="text-decoration: none;">
+                            <strong class="text-warning"> Laptop Land</strong>
+                        </a>
+                    </p>
+                </div>
+
+                <div class="col-md-5 col-lg-4">
+                    <div class="text-center text-md-right">
+                        <ul class="list-unstyled list-inline">
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i
+                                        class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i
+                                        class="fab fa-twitter"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i
+                                        class="fab fa-google-plus-g"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- The Modal/Lightbox -->
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+
+            <div class="mySlides">
+                <div class="numbertext">1 / 6</div>
+                <img src="https://dlcdnwebimgs.asus.com/gain/ac5d08d4-bb3c-4c02-9af4-035c40d53461/w800"
+                    style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">2 / 6</div>
+                <img src="https://dlcdnwebimgs.asus.com/gain/427ec618-b14b-4302-9e7d-441f2d2a71b4/w800"
+                    style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">3 / 6</div>
+                <img src="https://dlcdnwebimgs.asus.com/gain/8ca316fe-0115-4ffb-bbb1-da7c6a1979bd/w800"
+                    style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">4 / 6</div>
+                <img src="https://dlcdnwebimgs.asus.com/gain/7e9c35e1-86ce-408b-847d-0f0be26b4225/w800"
+                    style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">5 / 6</div>
+                <img src="https://dlcdnwebimgs.asus.com/gain/9a1855aa-aaf9-4109-a748-2a5828c3a0cc/w800"
+                    style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">6 / 6</div>
+                <img src="https://dlcdnwebimgs.asus.com/gain/4cef8987-c600-4d62-8797-792b8b4035f2/w800"
+                    style="width:100%">
+            </div>
+
+            <!-- Next/previous controls -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <!-- Caption text -->
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const galleryImages = document.querySelectorAll('.image');
+
+            const galleryObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('img-final');
+                        entry.target.querySelector('.text').classList.add('text-final');
+                        galleryObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% of the image is visible
+
+            galleryImages.forEach(image => {
+                galleryObserver.observe(image);
+            });
+
+            const animationContainer = document.querySelector(".animation-container");
+
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const animItem1 = document.getElementById('anim-item1');
+                        const animItem2 = document.getElementById('anim-item2');
+                        const animItem3 = document.getElementById('anim-item3');
+                        const animItem4 = document.getElementById('anim-item4');
+                        const animItem5 = document.getElementById('anim-item5');
+                        const animText1 = document.getElementById('anim-text1');
+                        const animText2 = document.getElementById('anim-text2');
+                        const animText3 = document.getElementById('anim-text3');
+                        const animText4 = document.getElementById('anim-text4');
+                        const animText5 = document.getElementById('anim-text5');
+
+                        // Trigger image animations
+                        setTimeout(() => animItem1.classList.add('anim1-final'), 500);
+                        setTimeout(() => animItem2.classList.add('anim2-final'), 1000);
+                        setTimeout(() => animItem3.classList.add('anim3-final'), 1500);
+                        setTimeout(() => animItem4.classList.add('anim4-final'), 2000);
+                        setTimeout(() => animItem5.classList.add('anim5-final'), 2500);
+
+                        // Trigger text animations after images finish
+                        setTimeout(() => animText1.classList.add('anim-text1-final'), 1750);
+                        setTimeout(() => animText2.classList.add('anim-text2-final'), 2250);
+                        setTimeout(() => animText3.classList.add('anim-text3-final'), 2750);
+                        setTimeout(() => animText4.classList.add('anim-text4-final'), 3250);
+                        setTimeout(() => animText5.classList.add('anim-text5-final'), 3750);
+                        // Stop observing after triggering animation
+                        animationObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% of the container is visible
+
+            animationObserver.observe(animationContainer);
+        });
+
+
+        // Open the Modal
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        // Close the Modal
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+            captionText.innerHTML = slides[slideIndex - 1].getElementsByTagName("img")[0].alt;
+        }
+
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const boxes = document.querySelectorAll('.box');
+            const boxObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        boxObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            boxes.forEach(box => {
+                boxObserver.observe(box);
+            });
+        });
+
+        const chatbot = document.getElementById('chatbot');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotToggleButton = document.getElementById('chatbotToggleButton');
+
+        function toggleChatbot() {
+            if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+                chatbot.style.display = 'block';
+                chatbotToggleButton.style.display = 'none';
+            } else {
+                chatbot.style.display = 'none';
+                chatbotToggleButton.style.display = 'block';
+            }
+        }
+
+        function sendMessage() {
+            const userMessage = chatbotInput.value.trim();
+            if (userMessage === '') return;
+
+            const userMessageElement = document.createElement('div');
+            userMessageElement.textContent = `You: ${userMessage}`;
+            userMessageElement.classList.add('user-message');
+            chatbotMessages.appendChild(userMessageElement);
+
+            chatbotInput.value = '';
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+            respondToMessage(userMessage.toLowerCase());
+        }
+
+        function respondToMessage(message) {
+            let response = '';
+
+            if (message.includes('specifications', 'specs') || message.includes('specs')) {
+                response = 'Our laptops feature the latest processors, ample RAM, and high-speed SSD storage.';
+            } else if (message.includes('warranty', 'guarantee', 'protection')) {
+                response = 'We offer a 2-year warranty on all our laptops, covering both hardware and software issues.';
+            } else if (message.includes('features')) {
+                response = 'Our laptops come with cutting-edge features like backlit keyboards, high-resolution displays, and advanced cooling systems.';
+            } else if (message.includes('price')) {
+                response = 'The price of our laptops varies depending on the model and configuration. Please visit our product page for detailed pricing information.';
+            } else {
+                response = 'I am here to help you with information about our laptops. You can ask about specifications, warranty, features, and pricing.';
+            }
+
+            const responseElement = document.createElement('div');
+            responseElement.textContent = `Assistant: ${response}`;
+            responseElement.classList.add('bot-message');
+            chatbotMessages.appendChild(responseElement);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        };
+
+        // Countdown Timer
+        const countdownDate = new Date("Dec 31, 2024 23:59:59").getTime();
+        const countdownInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").innerText = "EXPIRED";
+            }
+        }, 1000);
+
+
+
+
+    </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.11.0/dist/email.min.js"></script>
+
+</body>
+
+</html>

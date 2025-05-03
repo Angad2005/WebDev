@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASUS TUF Gaming Laptop</title>
+    <link rel="stylesheet" href="{% static 'flasky/static/strix.css' %}">
+    
+    <!-- Custom Feedback Styles -->
+    <style>
+        .feedback-card {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            color: #222;
+        }
+
+        .sentiment-label {
+            display: inline-block;
+            padding: 0.3em 0.6em;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9em;
+            color: black; /* Changed from white to black */
+            text-transform: capitalize;
+        }
+
+        .sentiment-positive {
+            background-color: #28a745; /* Green */
+        }
+
+        .sentiment-neutral {
+            background-color: #ffc107; /* Yellow */
+            /* No text color override needed (inherits black) */
+        }
+
+        .sentiment-negative {
+            background-color: #dc3545; /* Red */
+        }
+
+        .feedback-divider {
+            border-top: 1px solid #dee2e6;
+            margin: 2rem 0;
+        }
+
+        .feedback-actions {
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header and Hero Section -->
+<header id="main-header">
+    <div class="logo">ASUS ROG STRIX </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#feedback-section">Feedback</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <div class="navbar">
+                <div class="logo"></div>
+                <div class="avatar-container">
+                    <div class="dropdown"></div>
+                </div>
+            </div>
+        </ul>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <h1>ASUS TUF Gaming Laptop</h1>
+    <p>Unleash Power, Experience Gaming Like Never Before.</p>
+    <button class="cta">
+        <a href="https://www.asus.com/us/site/gaming/rog/gaming-laptops/strix-g16.html">Buy Now</a>
+    </button>
+</section>
+
+<!-- Features, Pricing, Gallery Sections -->
+<section id="features" class="features">
+    <h2>Features</h2>
+    <div class="feature-box">High Performance</div>
+    <div class="feature-box">RGB Keyboard</div>
+    <div class="feature-box">144Hz Display</div>
+</section>
+
+<section id="pricing" class="pricing">
+    <h2>Pricing</h2>
+    <div class="price-card">Base Model: $2286</div>
+    <div class="price-card">Advanced Model: $3200</div>
+    <div class="price-card">Pro Model: $3772</div>
+</section>
+
+<section id="gallery" class="gallery">
+    <h2>Gallery</h2>
+    <div class="video-container">
+        <video autoplay loop muted playsinline>
+            <source src="https://dlcdnwebimgs.asus.com/files/media/fd011465-8c85-4f94-88db-97b31f593615/v1/images/video/display_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="smoke-text">
+        A 90Wh battery paired with up to a power-efficient AMD Ryzen™ 9 8945H processor provides ample endurance for hours of web browsing and video playback, with fast charging technology returning the machine to 50% charge in just 30 minutes.
+    </div>
+    <div class="full-screen-image" style="background-image: url('https://dlcdnwebimgs.asus.com/files/media/fd011465-8c85-4f94-88db-97b31f593615/v1/images/desktop/software/software_layout.webp');"></div>
+</section>
+
+<!-- Feedback Section -->
+<hr>
+<div id="feedback-section">
+    <h2>Feedback</h2>
+
+    {% if user.is_authenticated %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-primary">Submit Feedback</button>
+        </form>
+    {% else %}
+        <p><a href="{% url 'login' %}">Log in</a> to leave feedback.</p>
+    {% endif %}
+
+    <hr>
+    <h4>What users are saying:</h4>
+
+    {% for fb in feedbacks %}
+        <div class="feedback-card">
+            <strong>{{ fb.user.username }}</strong> on {{ fb.created_at|date:"M d, Y H:i" }}<br>
+            <p>{{ fb.message }}</p>
+            <div>
+                Sentiment: 
+                <span class="sentiment-label 
+                    {% if fb.sentiment == 'positive' %}
+                        sentiment-positive
+                    {% elif fb.sentiment == 'neutral' %}
+                        sentiment-neutral
+                    {% else %}
+                        sentiment-negative
+                    {% endif %}">
+                    {{ fb.get_sentiment_display }}
+                </span>
+            </div>
+
+            <div class="feedback-actions">
+                {% if fb.user == request.user %}
+                    <form method="post" action="{% url 'delete_feedback' fb.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this feedback?');">
+                            Delete
+                        </button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+        <hr class="feedback-divider">
+    {% empty %}
+        <p>No feedback yet. Be the first!</p>
+    {% endfor %}
+</div>
+
+<!-- Footer -->
+<footer style="background-color: #222; color: #fff; padding: 20px 0; text-align: center; margin-top: 50px;">
+    <div style="max-width: 1200px; margin: auto; padding: 0 20px;">
+        <p>&copy; 2025 ASUS ROG STRIX. All Rights Reserved.</p>
+        <div style="margin-top: 10px;">
+            <a href="#" style="color: #6a11cb; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+            <a href="#" style="color: #6a11cb; text-decoration: none; margin: 0 10px;">Terms of Service</a>
+            <a href="#" style="color: #6a11cb; text-decoration: none; margin: 0 10px;">Support</a>
+        </div>
+        <div style="margin-top: 15px;">
+            <a href="https://www.facebook.com" target="_blank" style="color: #6a11cb; text-decoration: none; margin: 0 10px;">Facebook</a>
+            <a href="https://www.twitter.com" target="_blank" style="color: #6a11cb; text-decoration: none; margin: 0 10px;">Twitter</a>
+            <a href="https://www.instagram.com" target="_blank" style="color: #6a11cb; text-decoration: none; margin: 0 10px;">Instagram</a>
+            <a href="https://www.youtube.com" target="_blank" style="color: #6a11cb; text-decoration: none; margin: 0 10px;">YouTube</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll Animation -->
+<script>
+    window.addEventListener('scroll', function() {
+        var header = document.getElementById("main-header");
+        if (window.scrollY > 50) {
+            header.classList.add("shrink");
+        } else {
+            header.classList.remove("shrink");
+        }
+    });
+</script>
+
+</body>
+</html>
