@@ -1,0 +1,290 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASUS Zenbook 14 OLED UX3405</title>
+    <link rel="icon" href="https://brandeps.com/logo-download/A/Asus-rog-logo-vector-01.svg" type="image/svg+xml">
+    
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'flasky/static/zenbook.css' %}">
+    
+    <!-- Feedback Styling -->
+    <style>
+        .feedback-card {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            color: #222;
+        }
+        .sentiment-label {
+            display: inline-block;
+            padding: 0.3em 0.6em;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9em;
+            color: black;
+            text-transform: capitalize;
+        }
+        .sentiment-positive { background-color: #28a745; }
+        .sentiment-neutral { background-color: #ffc107; }
+        .sentiment-negative { background-color: #dc3545; }
+        .feedback-divider {
+            border-top: 1px solid #dee2e6;
+            margin: 2rem 0;
+        }
+        .feedback-actions {
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="main-header">
+        <div class="logo">ASUS Zenbook 14 OLED</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#gaming">Gaming</a></li>
+                <li><a href="#performance">Performance</a></li>
+                <li><a href="#creativity">Creativity</a></li>
+                <li><a href="#price">Price & Discount</a></li>
+                <li><a href="#feedback-section">Feedback</a></li>
+                <div class="navbar">
+                    <div class="logo"></div>
+                    <div class="avatar-container">
+                        <div class="dropdown"></div>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-text">
+            <h2>The Ultimate Laptop Experience</h2>
+            <p>Experience the next level of performance, style, and innovation with the ASUS Zenbook 14 OLED UX3405. Designed for creators, gamers, and professionals.</p>
+        </div>
+        <video width="80%" style="margin-top:7%;" loop muted autoplay>
+            <source src="https://dlcdnwebimgs.asus.com/files/media/ea5bde46-a344-49d0-8bcc-befd7351d88b/v2/features/images/video/large/wdVideos/wdVideos_1_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: #2a2a72;">FEATURES</h2>
+        <div class="features">
+            <div class="feature-card">
+                <img src="https://media.istockphoto.com/id/1366444151/photo/marketing-automation-tools-marketing-automation-software-marketing-technology-martech.jpg?s=612x612&w=0&k=20&c=3Ls6kRvJwShY1YrIpBtepYGPlV-y8DsU8gVkvSoGoGw=" alt="Performance">
+                <h3>Powerful Performance</h3>
+                <p>Experience next-level power with Intel Core Ultra 7 Processor. Whether you're multitasking or running heavy applications, this laptop is designed to handle everything effortlessly.</p>
+                <ul>
+                    <li>Intel Core Ultra 7 Processor</li>
+                    <li>16GB RAM (Expandable up to 32GB)</li>
+                    <li>Intel Iris Xe Graphics</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <img src="https://dlcdnwebimgs.asus.com/gain/838fbdac-6d10-4190-8e52-d4b9463f5d23/w800" alt="Display">
+                <h3>Immersive Display</h3>
+                <p>3K OLED, 120Hz display for crisp and vibrant visuals. The OLED panel delivers deep blacks and stunning contrast, providing an immersive experience whether you're working or gaming.</p>
+                <ul>
+                    <li>OLED technology for true-to-life colors</li>
+                    <li>120Hz refresh rate for smooth, fast visuals</li>
+                    <li>600 nits brightness for outdoor visibility</li>
+                    <li>3K resolution for exceptional clarity</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <img src="https://www.jagatreview.com/wp-content/uploads/2024/02/ASUS-Zenbook-14-OLED-UX3405-6.webp" alt="Design">
+                <h3>Sleek Design</h3>
+                <p>The Zenbook 14 OLED is designed for mobility and performance. Its ultra-slim profile makes it easy to carry without sacrificing durability, featuring military-grade construction.</p>
+                <ul>
+                    <li>Lightweight and ultra-slim</li>
+                    <li>Metal body for rugged durability</li>
+                    <li>Premium finish with a modern aesthetic</li>
+                    <li>Military-grade toughness</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gaming Section -->
+    <section id="gaming" class="gaming">
+        <h2>Immersive Gaming Experience</h2>
+        <p>Maximize your gaming experience with the power of Intel Core Ultra 7 and Intel ARC A770 GPU. Whether you're playing AAA games or competitive esports, the ASUS Zenbook 14 OLED gives you smooth, lag-free performance with stunning visuals.</p>
+        <ul>
+            <li>Intel Core Ultra 7 for fast processing</li>
+            <li>Intel ARC A770 GPU for exceptional graphics</li>
+            <li>OLED display for true-to-life colors and contrast</li>
+            <li>120Hz refresh rate for smooth, fast-paced gaming</li>
+        </ul>
+        <img src="https://wallpapercave.com/wp/wp13271181.jpg" alt="Gaming Laptop">
+    </section>
+
+    <!-- Performance Section -->
+    <section id="performance" class="performance">
+        <h2>Unmatched Performance</h2>
+        <p>Powered by Intel Core Ultra 7 Processor with AI accelerators, ASUS Zenbook 14 OLED ensures high-speed multitasking, superior gaming, and smooth creative workflows. Whether you're editing videos, gaming, or running complex simulations, this laptop delivers unmatched speed.</p>
+        <ul>
+            <li>Intel Core Ultra 7 Processor with 16 cores</li>
+            <li>Real-time performance optimization with AI accelerators</li>
+            <li>Fast SSD storage for instant file access</li>
+            <li>Up to 32GB of RAM for effortless multitasking</li>
+        </ul>
+        <img src="https://cdn.mos.cms.futurecdn.net/ipJ7CVXUcxRMGBvAkZDgDa.jpg" alt="Creative Laptop">
+    </section>
+
+    <!-- Creativity Section -->
+    <section id="creativity" class="sleek-design">
+        <h2>Creativity</h2>
+        <p>The Zenbook 14 OLED features a slim, elegant design with a durable, military-grade construction that withstands drops and scratches. With a lightweight profile and premium finish, this laptop is built for those on the go.</p>
+        <ul>
+            <li>Easy portability</li>
+            <li>All types of creativity software available</li>
+            <li>Live updates of stock market and trading graphs</li>
+        </ul>
+        <img src="https://img.freepik.com/premium-photo/busy-diverse-professional-business-people-executives-looking-laptop-office-international-workers-group-team-leader-having-teamwork-discussion-managing-project-work-meeting-room_1254992-206258.jpg" alt="Sleek Laptop Design">
+    </section>
+
+    <!-- Price & Discount Section -->
+    <section id="price" class="price-section">
+        <h2>Special Offer</h2>
+        <div class="price">Now Only: <span>$1300.00</span></div>
+        <div class="original-price">Was: $1500.00</div>
+        <div class="discount">Save 20% Now!</div>
+    </section>
+
+    <!-- Feedback Section -->
+    <hr>
+    <div id="feedback-section">
+        <h2>Feedback</h2>
+        {% if user.is_authenticated %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-primary">Submit Feedback</button>
+            </form>
+        {% else %}
+            <p><a href="{% url 'login' %}">Log in</a> to leave feedback.</p>
+        {% endif %}
+        <hr>
+        <h4>What users are saying:</h4>
+        {% for fb in feedbacks %}
+            <div class="feedback-card">
+                <strong>{{ fb.user.username }}</strong> on {{ fb.created_at|date:"M d, Y H:i" }}<br>
+                <p>{{ fb.message }}</p>
+                <div>
+                    Sentiment: 
+                    <span class="sentiment-label 
+                        {% if fb.sentiment == 'positive' %}
+                            sentiment-positive
+                        {% elif fb.sentiment == 'neutral' %}
+                            sentiment-neutral
+                        {% else %}
+                            sentiment-negative
+                        {% endif %}">
+                        {{ fb.get_sentiment_display }}
+                    </span>
+                </div>
+                <div class="feedback-actions">
+                    {% if fb.user == request.user %}
+                        <form method="post" action="{% url 'delete_feedback' fb.id %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this feedback?');">
+                                Delete
+                            </button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+            <hr class="feedback-divider">
+        {% empty %}
+            <p>No feedback yet. Be the first!</p>
+        {% endfor %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-left">
+            <div class="row text-center text-md-left">
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Laptop Store</h5>
+                    <p>Discover laptops built for speed, power, and innovation. Follow us on our social media channels to stay updated.</p>
+                </div>
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Quick Links</h5>
+                    <p><a href="#" class="text-white" style="text-decoration: none;">Home</a></p>
+                    <p><a href="#features" class="text-white" style="text-decoration: none;">About</a></p>
+                    <p><a href="#features" class="text-white" style="text-decoration: none;">Specifications</a></p>
+                    <p><a href="#feedback" class="text-white" style="text-decoration: none;">Reviews</a></p>
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Social Media</h5>
+                    <p><a href="https://www.facebook.com" target="_blank" class="text-white" style="text-decoration: none;"><i class="fab fa-facebook-f"></i> Facebook</a></p>
+                    <p><a href="https://www.twitter.com" target="_blank" class="text-white" style="text-decoration: none;"><i class="fab fa-twitter"></i> Twitter</a></p>
+                    <p><a href="https://www.instagram.com" target="_blank" class="text-white" style="text-decoration: none;"><i class="fab fa-instagram"></i> Instagram</a></p>
+                    <p><a href="https://www.linkedin.com" target="_blank" class="text-white" style="text-decoration: none;"><i class="fab fa-linkedin-in"></i> LinkedIn</a></p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact Us</h5>
+                    <p><i class="fas fa-home mr-3"></i> Gali Number 420, Navi Delhi</p>
+                    <p><i class="fas fa-envelope mr-3"></i> info@laptopstore.com</p>
+                    <p><i class="fas fa-phone mr-3"></i> +91 9999999999</p>
+                    <p><i class="fas fa-print mr-3"></i> +91 9999999999</p>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <div class="row align-items-center">
+                <div class="col-md-7 col-lg-8">
+                    <p class="text-center text-md-left">© 2025 Copyright:
+                        <a href="#" style="text-decoration: none;">
+                            <strong class="text-warning">Laptop Store</strong>
+                        </a>
+                    </p>
+                </div>
+                <div class="col-md-5 col-lg-4">
+                    <div class="text-center text-md-right">
+                        <ul class="list-unstyled list-inline">
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-google-plus-g"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Header Animation -->
+    <script>
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById("main-header");
+            if (window.scrollY > 50) {
+                header.classList.add("shrink");
+            } else {
+                header.classList.remove("shrink");
+            }
+        });
+    </script>
+</body>
+</html>
