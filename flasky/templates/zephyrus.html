@@ -659,25 +659,36 @@ img:hover {
  
         <hr>
         <div id="feedback-section">
-            <h2>Feedback</h2>
-        
-            {% if user.is_authenticated %}
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button class="btn btn-primary">Submit Feedback</button>
-                </form>
-            {% else %}
-                <p><a href="{% url 'login' %}">Log in</a> to leave feedback.</p>
-            {% endif %}
-        
-            <hr>
-            <h4>What users are saying:</h4>
-            {% for fb in feedbacks %}
-                <div class="feedback-card">
-                    <strong>{{ fb.user.username }}</strong> on {{ fb.created_at|date:"M d, Y H:i" }}<br>
-                    <p>{{ fb.message }}</p>
-        
+        <h2>Feedback</h2>
+        {% if user.is_authenticated %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-primary">Submit Feedback</button>
+            </form>
+        {% else %}
+            <p><a href="{% url 'login' %}">Log in</a> to leave feedback.</p>
+        {% endif %}
+        <hr>
+        <h4>What users are saying:</h4>
+        {% for fb in feedbacks %}
+            <div class="feedback-card">
+                <strong>{{ fb.user.username }}</strong> on {{ fb.created_at|date:"M d, Y H:i" }}<br>
+                <p>{{ fb.message }}</p>
+                <div>
+                    Sentiment: 
+                    <span class="sentiment-label 
+                        {% if fb.sentiment == 'positive' %}
+                            sentiment-positive
+                        {% elif fb.sentiment == 'neutral' %}
+                            sentiment-neutral
+                        {% else %}
+                            sentiment-negative
+                        {% endif %}">
+                        {{ fb.get_sentiment_display }}
+                    </span>
+                </div>
+                <div class="feedback-actions">
                     {% if fb.user == request.user %}
                         <form method="post" action="{% url 'delete_feedback' fb.id %}" style="display:inline;">
                             {% csrf_token %}
@@ -687,13 +698,12 @@ img:hover {
                         </form>
                     {% endif %}
                 </div>
-            {% empty %}
-                <p>No feedback yet. Be the first!</p>
-            {% endfor %}
-        </div>
-        
-        
-        
+            </div>
+            <hr class="feedback-divider">
+        {% empty %}
+            <p>No feedback yet. Be the first!</p>
+        {% endfor %}
+    </div>
 
           <!-- Email.js script -->
           <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.11.0/dist/email.min.js"></script>
