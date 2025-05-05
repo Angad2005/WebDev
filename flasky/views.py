@@ -22,7 +22,7 @@ def tuf(request):
             fb.product = product
             fb.save()
             try:
-                response = requests.post('http://localhost:5000/analyze', json={'text': fb.message})
+                response = requests.post('https://flaskapi-q5hf.onrender.com', json={'text': fb.message})
                 if response.status_code == 200:
                     sentiment = response.json().get('sentiment', 'neutral')
                     fb.sentiment = sentiment
@@ -134,7 +134,7 @@ def zenbook(request):
             fb.product = product
             fb.save()
             try:
-                response = requests.post('http://localhost:5000/analyze', json={'text': fb.message})
+                response = requests.post('https://flaskapi-q5hf.onrender.com', json={'text': fb.message})
                 if response.status_code == 200:
                     sentiment = response.json().get('sentiment', 'neutral')
                     fb.sentiment = sentiment
@@ -183,7 +183,7 @@ def zephyrus(request):
             fb.product = product
             fb.save()
             try:
-                response = requests.post('http://localhost:5000/analyze', json={'text': fb.message})
+                response = requests.post('https://flaskapi-q5hf.onrender.com', json={'text': fb.message})
                 if response.status_code == 200:
                     sentiment = response.json().get('sentiment', 'neutral')
                     fb.sentiment = sentiment
@@ -232,7 +232,7 @@ def vivobook(request):
             fb.product = product
             fb.save()
             try:
-                response = requests.post('http://localhost:5000/analyze', json={'text': fb.message})
+                response = requests.post('https://flaskapi-q5hf.onrender.com', json={'text': fb.message})
                 if response.status_code == 200:
                     sentiment = response.json().get('sentiment', 'neutral')
                     fb.sentiment = sentiment
@@ -300,7 +300,7 @@ def feedback_page(request):
                 fb.user = request.user
                 fb.save()
                 try:
-                    response = requests.post('http://localhost:5000/analyze', json={'text': fb.message})
+                    response = requests.post('https://flaskapi-q5hf.onrender.com', json={'text': fb.message})
                     if response.status_code == 200:
                         sentiment = response.json().get('sentiment', 'neutral')
                         fb.sentiment = sentiment
