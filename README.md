@@ -2,6 +2,14 @@
 
 A responsive web application replicating the official ASUS laptop website, built using **HTML**, **CSS**, and **Python (Django)**. This project demonstrates modern web development practices, including dynamic routing and static asset management.
 
+With a sentiment analysis system on the customer review box with live tagging and categorising the reviews on :
+
+- $\color{red}{\text{Negative}}$
+
+- $\color{green}{\text{Positive}}$
+
+- $\color{Yellow}{\text{Neutral}}$
+
 ---
 
 ## 🚀 Project Overview
